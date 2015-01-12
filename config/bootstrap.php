@@ -1,7 +1,5 @@
 <?php
 
-namespace Wouter0100\Opauth\Config;
-
 use Cake\Core\Configure;
 
 /**
@@ -12,28 +10,12 @@ use Cake\Core\Configure;
  * @license      MIT License
 */
 
-/**
- * Overwrite default OPauth config
- * For all configuration variables see:
- * https://github.com/opauth/opauth/wiki/Opauth-configuration
- */
-Configure::write('Opauth.Config', []);
-
-/**
- * Complete URL to dispatch after an authentication has been done (success or failed).
- */
-Configure::write('Opauth.CompleteURL', '/auth/complete');
-
-/**
- * Strategy
- * Refer to individual strategy's documentation on configuration requirements.
- * 
- * Add strategy configurations in your app's bootstrap.php in the following format:
- * 
- * Configure::write('Opauth.Strategy.Facebook', array(
- *     'app_id' => 'YOUR FACEBOOK APP ID',
- *     'app_secret' => 'YOUR FACEBOOK APP SECRET'
- * ));
- *
- */
-Configure::write('Opauth.Strategy', []);
+if (file_exists(CONFIG . 'opauth.php')) {
+	Configure::load('opauth');
+} else {
+	Configure::write('Opauth', [
+		'Config' => [],
+		'CompleteURL' => '/auth/complete',
+		'Strategy' => []
+	]);
+}

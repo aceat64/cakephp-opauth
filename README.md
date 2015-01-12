@@ -24,15 +24,13 @@ How to use
    <?php
    Plugin::load('Wouter0100/Opauth', array('routes' => true, 'bootstrap' => true));
    ```
-   Overwrite any Opauth configurations you want after the above line.
+   Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory.
 
 4. Load [strategies](https://github.com/uzyn/opauth/wiki/list-of-strategies) onto `src/Strategy/` directory.
 
-   Append configuration for strategies at your app's `config/bootstrap.php` as follows:
+   Append configuration for strategies at your `config/opauth.php` file as follows:
    ```php
    <?php
-   Plugin::load('Wouter0100/Opauth', [ 'routes' => true, 'bootstrap' => true ]);
-   
    // Using Facebook strategy as an example
    Configure::write('Opauth.Strategy.Facebook', [
        'app_id' => 'YOUR FACEBOOK APP ID',

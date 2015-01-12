@@ -1,7 +1,5 @@
 <?php
 
-namespace Wouter0100\Opauth\Config;
-
 use Cake\Routing\Router;
 
 /**
