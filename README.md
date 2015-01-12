@@ -32,10 +32,10 @@ How to use
    ```php
    <?php
    // Using Facebook strategy as an example
-   Configure::write('Opauth.Strategy.Facebook', [
-       'app_id' => 'YOUR FACEBOOK APP ID',
-       'app_secret' => 'YOUR FACEBOOK APP SECRET'
-   ]);
+   $config['Opauth']['Strategy']['Facebook'] = [
+        'app_id' => 'YOUR FACEBOOK APP ID',
+        'app_secret' => 'YOUR FACEBOOK APP SECRET'
+   ];
    ```
 
 5. Go to `/auth/facebook` to authenticate with Facebook, and similarly for other strategies that you have loaded.
