@@ -31,10 +31,10 @@ class OpauthController extends AppController {
 	public function index(){
 		$this->_loadOpauth();
 		try {
-            $callback = [
-                'validated' => true,
-                'response' => $this->Opauth->run()
-            ];
+			$callback = [
+				'validated' => true,
+				'response' => $this->Opauth->run()
+			];
 		} catch (OpauthException $e) {
 			$callback = [
 				'validated' => false,
