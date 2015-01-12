@@ -14,6 +14,5 @@ use Cake\Routing\Router;
  * Routing for Opauth
  */
 Router::plugin('Wouter0100/Opauth', [ 'path' => '/auth' ], function ($routes) {
-	$routes->connect('/callback', [ 'controller' => 'Opauth', 'action' => 'callback' ]);
 	$routes->connect('/*', [ 'controller' => 'Opauth', 'action' => 'index' ]);
 });

@@ -40,7 +40,7 @@ How to use
 
 5. Go to `/auth/facebook` to authenticate with Facebook, and similarly for other strategies that you have loaded.
 
-6. After validation, user will be redirected to `Router::url('/auth/complete')` with validated auth response data retrievable available at `$this->response->data`.
+6. After validation, user will be redirected to `'/auth/complete'` with validated auth response data retrievable available at `$this->response->data`.
 
    To route a controller to handle the response, at your app's `config/routes.php`, add a connector, for example:
 
@@ -48,7 +48,7 @@ How to use
    <?php
    Router::connect(
        '/auth/complete', 
-       [ 'controller' => 'users', 'action' => 'opauth_complete' ]
+       [ 'controller' => 'users', 'action' => 'complete' ]
    );
    ```
 
