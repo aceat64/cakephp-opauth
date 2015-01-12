@@ -22,7 +22,7 @@ Configure::write('Opauth.Config', []);
 /**
  * Complete URL to dispatch after an authentication has been done (success or failed).
  */
-Configure::write('Opauth.CompleteURL', '/opauth-complete');
+Configure::write('Opauth.CompleteURL', '/auth/complete');
 
 /**
  * Strategy
