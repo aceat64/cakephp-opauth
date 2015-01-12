@@ -35,20 +35,20 @@ class OpauthController extends AppController {
                 'validated' => true,
                 'response' => $this->Opauth->run()
             ];
-        } catch (OpauthException $e) {
-            $callback = [
-                'validated' => false,
-                'message' => $e->getMessage(),
-                'code' => $e->getCode()
-            ];
-        }
+		} catch (OpauthException $e) {
+			$callback = [
+				'validated' => false,
+				'message' => $e->getMessage(),
+				'code' => $e->getCode()
+			];
+		}
 
-        $Request = new Request(Configure::read('Opauth.CompleteURL'));
-        $Request->data = $callback;
+		$Request = new Request(Configure::read('Opauth.CompleteURL'));
+		$Request->data = $callback;
 
-        $dispatcher = DispatcherFactory::create();
-        $dispatcher->dispatch($Request, new Response());
-        exit();
+		$dispatcher = DispatcherFactory::create();
+		$dispatcher->dispatch($Request, new Response());
+		exit();
 	}
 
 	/**
