@@ -26,7 +26,7 @@ How to use
    ```
    Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory.
 
-4. Load [strategies](https://github.com/uzyn/opauth/wiki/list-of-strategies) onto `src/Strategy/` directory.
+4. Load [strategies](https://github.com/uzyn/opauth/wiki/list-of-strategies) using Composer for Opauth 1.0.0.
 
    Append configuration for strategies at your `config/opauth.php` file as follows:
    ```php
