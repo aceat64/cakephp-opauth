@@ -1,0 +1,30 @@
+{
+  "name": "Wouter0100/cakephp-opauth",
+  "description": "Opauth plugin for CakePHP v3.x, allowing simple plug-n-play 3rd-party authentication with CakePHP",
+  "type": "cakephp-plugin",
+  "keywords": ["cakephp", "opauth", "authentication", "auth", "oauth"],
+  "homepage": "http://opauth.org",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "U-Zyn Chua",
+      "email": "chua@uzyn.com",
+      "homepage": "http://uzyn.com"
+    },
+    {
+      "name": "Wouter van Os",
+      "email": "wouter@wouter0100.nl",
+      "homepage": "http://wouter0100.nl"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "cakephp/cakephp": "3.0.*",
+    "opauth/opauth": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wouter0100\\Opauth\\": "src"
+    }
+  }
+}
