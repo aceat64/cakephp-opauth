@@ -58,7 +58,9 @@ class OpauthController extends AppController {
 	 * @param boolean $run Whether Opauth should auto run after initialization.
 	 */
 	protected function _loadOpauth($config = null) {
-		$config = Configure::read('Opauth.Config');
+		$config = [];
+		
+		$config += Configure::read('Opauth.Config');
 
 		$config += [
 			'path' => Router::url([ 'controller' => 'Opauth', 'action' => 'index' ]) . DS,
