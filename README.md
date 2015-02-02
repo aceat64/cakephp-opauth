@@ -23,8 +23,9 @@ How to use
    ```php
    <?php
    Plugin::load('Wouter0100/Opauth', array('routes' => true, 'bootstrap' => true));
+   Configure::load('opauth');
    ```
-   Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory.
+   Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory. You may want to add `/config/opauth.php` to your gitignore, as the file will contain sensitive information.
 
 4. Load [strategies](https://github.com/uzyn/opauth/wiki/list-of-strategies) using Composer for Opauth 1.0.0.
 
@@ -32,7 +33,7 @@ How to use
    ```php
    <?php
    // Using Facebook strategy as an example
-   $config['Opauth']['Strategy']['Facebook'] = [
+   $config['Opauth']['Config']['Strategy']['Facebook'] = [
         'app_id' => 'YOUR FACEBOOK APP ID',
         'app_secret' => 'YOUR FACEBOOK APP SECRET'
    ];
