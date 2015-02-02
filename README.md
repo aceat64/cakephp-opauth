@@ -23,7 +23,6 @@ How to use
    ```php
    <?php
    Plugin::load('Wouter0100/Opauth', array('routes' => true, 'bootstrap' => true));
-   Configure::load('opauth');
    ```
    Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory. You may want to add `/config/opauth.php` to your gitignore, as the file will contain sensitive information.
 
