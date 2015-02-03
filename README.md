@@ -32,7 +32,7 @@ How to use
    ```php
    <?php
    // Using Facebook strategy as an example
-   $config['Opauth']['Config']['Strategy']['Facebook'] = [
+   $config['Opauth']['Strategy']['Facebook'] = [
         'app_id' => 'YOUR FACEBOOK APP ID',
         'app_secret' => 'YOUR FACEBOOK APP SECRET'
    ];
