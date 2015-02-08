@@ -21,16 +21,22 @@ How to use
 2. Add this line to the bottom of your app's `config/bootstrap.php`:
 
    ```php
-   <?php
    Plugin::load('Wouter0100/Opauth', array('routes' => true, 'bootstrap' => true));
    ```
-   Overwrite any Opauth configurations within a `opauth.php` file within your `config/` directory. You may want to add `/config/opauth.php` to your gitignore, as the file will contain sensitive information.
+
+3. Create a `config/opauth.php` file with the URL you wish to use for handeling the authentication data after opauth has run:
+
+   ```php
+   <?php
+
+   $config['Opauth']['CompleteURL'] = '/auth/complete';
+   ```
+   You may want to add `config/opauth.php` to your gitignore, as the file will contain sensitive information.
 
 4. Load [strategies](https://github.com/uzyn/opauth/wiki/list-of-strategies) using Composer for Opauth 1.0.0.
 
    Append configuration for strategies at your `config/opauth.php` file as follows:
    ```php
-   <?php
    // Using Facebook strategy as an example
    $config['Opauth']['Strategy']['Facebook'] = [
         'app_id' => 'YOUR FACEBOOK APP ID',
@@ -40,30 +46,34 @@ How to use
 
 5. Go to `/auth/facebook` to authenticate with Facebook, and similarly for other strategies that you have loaded.
 
-6. After validation, user will be redirected to `'/auth/complete'` with validated auth response data retrievable available at `$this->response->data`.
+6. After validation, user will be redirected to `'/auth/complete'` (or whatever you chose in the `opauth.php`
+   config file) with validated auth response data retrievable available at `$this->response->data`.
 
    To route a controller to handle the response, at your app's `config/routes.php`, add a connector, for example:
 
    ```php
-   <?php
-   Router::connect(
-       '/auth/complete', 
-       [ 'controller' => 'users', 'action' => 'complete' ]
-   );
+   $routes->connect('/auth/complete', ['controller' => 'Users', 'action' => 'complete']);
    ```
 
    You can then work with the authentication data at, say `src/Controller/UsersController.php` as follows:
    
    ```php
    <?php
-   class UsersController extends AppController {
-       public function opauth_complete() {
+   namespace App\Controller;
+
+   use App\Controller\AppController;
+
+   class UsersController extends AppController
+   {
+       public function complete()
+       {
            debug($this->request->data);
        }
    }
    ```
 
-   Note that this CakePHP Opauth plugin already does auth response validation for you with its results available as a boolean value at `$this->request->data['validated']`.
+   Note that this CakePHP Opauth plugin already does auth response validation for you with its results available
+   as a boolean value at `$this->request->data['validated']`.
 
 Issues & questions
 -------------------
