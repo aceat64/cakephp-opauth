@@ -21,7 +21,7 @@ How to use
 2. Add this line to the bottom of your app's `config/bootstrap.php`:
 
    ```php
-   Plugin::load('Wouter0100/Opauth', array('routes' => true, 'bootstrap' => true));
+   Plugin::load('Wouter0100/Opauth', ['routes' => true, 'bootstrap' => true]);
    ```
 
 3. Create a `config/opauth.php` file with the URL you wish to use for handeling the authentication data after opauth has run:
@@ -52,7 +52,10 @@ How to use
    To route a controller to handle the response, at your app's `config/routes.php`, add a connector, for example:
 
    ```php
-   $routes->connect('/auth/complete', ['controller' => 'Users', 'action' => 'complete']);
+   $routes->connect(
+       '/auth/complete',
+       ['controller' => 'Users', 'action' => 'complete']
+   );
    ```
 
    You can then work with the authentication data at, say `src/Controller/UsersController.php` as follows:
